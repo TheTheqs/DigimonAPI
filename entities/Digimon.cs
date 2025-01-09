@@ -15,5 +15,5 @@ public partial class Digimon
 	public Type? Type { get; set; }
 	public int? AttributeId { get; set; }
 	public Attribute? Attribute { get; set; }
-	public Array[]? SpecialMoves { get; set; }
+	public ICollection<SpecialMove>? SpecialMoves { get; set; }
 }

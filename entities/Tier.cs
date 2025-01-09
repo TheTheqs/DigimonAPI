@@ -3,9 +3,10 @@ using System.ComponentModel.DataAnnotations;
 public partial class Tier
 {
 	[Key]
-	public int id { get; set; }
+	public int Id { get; set; }
 	[Required]
 	[StringLength(50)]
-	public string? name { get; set; }
-	public int? level { get; set; }
+	public string? Name { get; set; }
+	public int? Level { get; set; }
+	public ICollection<Digimon>? Digimons { get; set; }
 }
