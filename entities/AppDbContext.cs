@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 //This is the Entity FrameWork main class, responsable for build the database bank, wich were Code First in this project
 
-namespace DigimonAPI.entities; 
+namespace DigimonAPI.entities;
 
 public class AppDbContext : DbContext
 {
