@@ -1,5 +1,5 @@
 using System.ComponentModel.DataAnnotations;
-
+//This class only holds attributes, a partial class is created to hold its constructors
 public partial class Tier
 {
 	[Key]

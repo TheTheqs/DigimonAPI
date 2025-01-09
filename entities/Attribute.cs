@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
-
+//This class only holds attributes, a partial class is created to hold its constructors
+namespace DigimonAPI.entities;
 public partial class Attribute
 {
 	[Key]
@@ -8,10 +9,10 @@ public partial class Attribute
 	[StringLength(50)]
 	public string? Name { get; set; }
 
-	public int? WeakId { get; set; } //aqui precisa haver a chave estrangeira para o id do tipo que ele é fraco
+	public int? WeakId { get; set; }
 	public Attribute? WeakAgainst { get; set; }
 
-	public int? StringId { get; set; } //aqui precisa haver a chave estrangeira para o tipo que ele é forte
+	public int? StringId { get; set; }
 	public Attribute? StrongAgainst { get; set; }
 
 	public ICollection<Digimon>? Digimons { get; set; }

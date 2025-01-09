@@ -2,12 +2,12 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-//injeção do framework do banco de dados
+//framework dependencie
 builder.Services.AddDbContext<AppDbContext>(options =>
 	options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-var app = builder.Build();
+var app = builder.Build(); //build starter
 
-app.MapGet("/", () => "Hello, World!");
+app.MapGet("/", () => "Hello, World!"); //standart endpoint
 
 app.Run();
