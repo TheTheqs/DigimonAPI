@@ -17,23 +17,26 @@ var options = new JsonSerializerOptions { WriteIndented = true };
 //standart endpoint
 app.MapGet("/", () => "Hello, World!");
 
-app.MapGet("/test", () =>
+app.MapGet("/test", async () =>
 {
 	try
 	{
-		ICollection<SpecialMove> specialMoves = new HashSet<SpecialMove>();
-		specialMoves.Add(new SpecialMove("Final Excalibur"));
-		specialMoves.Add(new SpecialMove("Zero Heavens"));
-		specialMoves.Add(new SpecialMove("Devotion Field"));
-		Digimon testDigimon = new Digimon("Dominimon", "Desc", "imgURL", new Tier("Mega"), new DigimonAPI.entities.Type("Dominion"), new DigimonAPI.entities.Attribute("Vaccine"), specialMoves);
-		object? jsoned = DF.FormatDigimon(testDigimon);
-		if(jsoned != null)
+		String webPage = "https://digimon.net/reference_en/detail.php?directory_name=ryugumon";
+		String? providadedHTML = await HP.GetHTML(webPage);
+		if (providadedHTML == null)
 		{
-			return Results.Json(jsoned, options); //Results. AOT was been disabled due to the annoying warning :D
+			return Results.NotFound("HTML is null!");
 		} 
 		else
 		{
-			return Results.NotFound("The related digimon does not exist in the database");
+			if(TC.GenerateTxt(providadedHTML))
+			{
+				return Results.Ok("TXT was successfully generated!");
+			}
+			else
+			{
+				return Results.BadRequest("Failed to generate TXT");
+			}
 		}
 	}
 	catch(Exception err)

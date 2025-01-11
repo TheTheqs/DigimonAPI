@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	  <script type="text/javascript" src="https://cdn-apac.onetrust.com/consent/1f75e697-e2df-48aa-a0a7-146ee9f9618f/OtAutoBlock.js"></script>
+  <script src="https://cdn-apac.onetrust.com/scripttemplates/otSDKStub.js" type="text/javascript" charset="UTF-8" data-domain-script="1f75e697-e2df-48aa-a0a7-146ee9f9618f"></script>
+<script type="text/javascript">
+  function OptanonWrapper() {}
+</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-59VMCRG');</script>
+<!-- End Google Tag Manager -->	<meta charset="UTF-8">
+<title>Ryugumon | Digimon Encyclopedia | Digimon Web | Digimon Official General Site</title>
+<meta name="keywords" content="デジモン,デジヴァイス,デジモンアドベンチャー,デジモンウェブ, デジタル,モンスター,デジモン図鑑, アグモン,ウォーグレイモン,メタルガルルモン,オメガモン">
+<meta name="description" content="デジタルモンスター（デジモン）の情報はデジモン公式総合サイト「デジモンウェブ」で！">
+<meta name="viewport" content="width=device-width">
+
+<link href="https://fonts.googleapis.com/css?family=Montserrat:100,400,700%7CNoto+Sans+JP&display=swap" rel="stylesheet">
+<script src="//j.wovn.io/1" data-wovnio="key=idMWIQ" async></script>
+<link rel="shortcut icon" href="https://digimon.net/favicon.ico">
+<link rel="apple-touch-icon" href="https://digimon.net/webclip.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ryugumon | Digimon Encyclopedia | Digimon Web | Digimon Official General Site">
+<meta name="twitter:description" content="デジタルモンスター（デジモン）の情報はデジモン公式総合サイト「デジモンウェブ」で！">
+<meta name="twitter:image" content="https://digimon.net/cimages/digimon/ryugumon.jpg">
+<meta name="twitter:url" content="https://digimon.net/reference_en/detail.php?directory_name=ryugumon">
+
+<meta property="og:title" content="Ryugumon | Digimon Encyclopedia | Digimon Web | Digimon Official General Site">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://digimon.net/cimages/digimon/ryugumon.jpg">
+<meta property="og:url" content="https://digimon.net/reference_en/detail.php?directory_name=ryugumon">
+<meta property="og:site_name" content="Digimon Web | Digimon Official General Site">
+<meta property="og:description" content="デジタルモンスター（デジモン）の情報はデジモン公式総合サイト「デジモンウェブ」で！">
+
+
+
+
+<script src="../js/lib/jquery.min.js"></script>
+<script src="../js/lib/fancybox/jquery.fancybox.min.js"></script>
+<link rel="stylesheet" href="../js/lib/fancybox/jquery.fancybox.min.css">
+<script src="../js/lib/lazyload.min.js"></script>
+
+<script src="../js/lib/slick/slick.min.js"></script>
+<link rel="stylesheet" href="../js/lib/slick/slick.css">
+<link rel="stylesheet" href="../js/lib/slick/slick-theme.css">
+
+
+<link rel="stylesheet" href="../css/layout.css?1736579828">
+
+<script src="../js/lib/ScrollMagic.min.js"></script>
+<script src="../js/lib/js.cookie.min.js"></script>
+<script src="../js/common.js?1736579828"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-155993801-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+  gtag('config', 'UA-155993801-1');
+</script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-705867432"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'AW-705867432');
+</script>
+
+<script>
+gtag('event', 'page_view', {
+'send_to': 'AW-705867432',
+'value': 'replace with value',
+'items': [{
+'id': 'replace with value',
+'google_business_vertical': 'retail'
+}]
+});
+</script>
+
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('dataProcessingOptions', ['LDU'], 0, 0);
+fbq('init', '714690672699778',{external_id: ''});
+fbq('trackSingle', '714690672699778', 'PageView',{},{eventID : ''});
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=714690672699778&ev=PageView&dpo=LDU&dpoco=0&dpost=0&noscript=1"
+/></noscript>
+
+<script>
+!function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+// Insert Twitter Pixel ID and Standard Event data below
+twq('init','o42uf');
+twq('track','PageView');
+</script>
+
+
+<!-- User Heat Tag -->
+<script type="text/javascript">
+(function(add, cla){window['UserHeatTag']=cla;window[cla]=window[cla]||function(){(window[cla].q=window[cla].q||[]).push(arguments)},window[cla].l=1*new Date();var ul=document.createElement('script');var tag = document.getElementsByTagName('script')[0];ul.async=1;ul.src=add;tag.parentNode.insertBefore(ul,tag);})('//uh.nakanohito.jp/uhj2/uh.js', '_uhtracker');_uhtracker({id:'uhZYTaXsOr'});
+</script>
+<!-- End User Heat Tag -->
+	<style>
+		.c-zoomWrap {
+			position: relative;
+			display: block;
+		}
+
+		.c-zoomWrap:after {
+			position: absolute;
+			right: 4px;
+			bottom: 4px;
+			content: url(../images/common/ico_zoom.svg);
+			width: 10%;
+			height: 9%;
+			/*			background: red;*/
+		}
+	</style>
+</head>
+
+<body>
+	<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-59VMCRG"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v3.1&appId=2088027808125346&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+	<div class="l-container">
+
+
+		<noscript>
+  <span class="c-jsError">JavaScriptの設定を有効にしてください。</span>
+</noscript>
+
+<header class="l-header">
+  <div class="l-header__inner">
+
+    <div class="l-header__logoSet">
+
+      <h1 class="l-header__logo"><a href="../" class="c-hoverImgWrap"><img src="../images/common/logo_site.png" alt="デジモンウェブ"></a></h1>
+      <p class="l-header__catch">DIGITALMONSTER <br class="l-header__catchBr">OFFICIAL PORTAL SITE      </p>
+    </div>
+    <nav class="l-header__gnavi p-gnavi">
+
+      <div class="p-gnavi__symbol u-SP-only">
+        <h2 class="p-gnavi__title">MENU</h2>
+        <a href="javascript:;" id="js-nav-open" class="p-gnavi__btn-open"><span></span></a>
+      </div>
+      <div class="p-gnavi__inner">
+                <ul class="p-gnavi__list">
+          <li><a href="../topic/?cat=ALL"><span class="p-icoCat"><img src="../images/common/ico/ico_topic.png" alt="アイコン"></span><span class="p-gnavi__txt">Topics</span></a></li>
+          <li><a href="../whats/"><span class="p-icoCat"><img src="../images/common/ico/ico_whats.png" alt="アイコン"></span><span class="p-gnavi__txt">About Digimon</span></a></li>
+          <li><a href="../anime_video/"><span class="p-icoCat"><img src="../images/common/ico/ico_video.png" alt="アイコン"></span><span class="p-gnavi__txt">Anime / Video</span></a></li>
+          <li><a href="../product/"><span class="p-icoCat"><img src="../images/common/ico/ico_product.png" alt="アイコン"></span><span class="p-gnavi__txt">Goods / Card<br class="u-SP-only">/  Games</span></a></li>
+          <li><a href="../fun/"><span class="p-icoCat"><img src="../images/common/ico/ico_fun.png" alt="アイコン"><img src="../images/common/ico/ico_calendar.png" alt="アイコン"></span><span class="p-gnavi__txt">Picture book / FUN<br class="u-SP-only">/ Calendar</span></a></li>
+        </ul>
+
+      </div>
+    </nav>
+  </div>
+  <div class="p-translate is-reference_link">
+    <div class="wovn-languages">
+      <div class="p-translate__listWrap">
+        <div class="p-translate__list">
+                                    <a href="../reference/detail.php?directory_name=ryugumon" class="p-translate__item " data-value="ja">日本語</a>
+              <a href="../reference_en/detail.php?directory_name=ryugumon" class="p-translate__item selected" data-value="en">English</a>
+              <a href="../reference_zh-CHS/detail.php?directory_name=ryugumon" class="p-translate__item " data-value="zh-CHS">簡体中文</a>
+              <a href="../reference_zh-CHT/detail.php?directory_name=ryugumon" class="p-translate__item " data-value="zh-CHT">繁體中文</a>
+              <a href="../reference_ko/detail.php?directory_name=ryugumon" class="p-translate__item " data-value="ko">한국어</a>
+                              </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+		<div class="l-main">
+			<div class="c-titlePage">
+				<h2 class="c-titlePage__title">Digimon Encyclopedia</h2>
+				<div class="c-titlePage__bg">WHAT'S DIGIMON</div>
+			</div>
+
+			<div class="l-section">
+				<div class="l-section__inner" data-scroll-item>
+
+					<section class="l-contents">
+						<div class="p-ref">
+																					<div class="c-titleSet"><div class="c-titleSet__sub">RYUGUMON</div><h3 class="c-titleSet__main c-titleSet__main--arrow">Ryugumon</h3></div>
+							<div class="p-ref__ico">
+
+
+
+															</div>
+
+
+							<div class="p-ref__wrap">
+								<div class="p-ref__pic">
+
+									<ul class="p-ref__piclist" data-piclist>
+
+																						<li class="p-ref__picitem">
+																									<img src="../cimages/digimon/ryugumon.jpg" alt="">
+																									</li>
+																								
+									</ul>
+									<div class="u-tac"><a href="javascript:;" class="p-ref__picbtn c-btn" data-picbtn>See other illustrations</a></div>
+								
+		
+								</div>
+								<div class="p-ref__info">
+									<dl><dt class="c-txtStrong_A">Level</dt><dd>Mega</dd></dl><dl><dt class="c-txtStrong_A">Type</dt><dd>Mollusk</dd></dl><dl><dt class="c-txtStrong_A">Attribute</dt><dd>Data</dd></dl><dl><dt class="c-txtStrong_A">Special Move</dt><dd>・Ceremonial Sea Summon<br>・Wadatsumi Purification</dd></dl>								</div>
+							</div>
+							<section class="p-ref__profile u-mgn">
+								<div class="c-titleRect"><h4 class="c-titleRect__title  u-fsx11">Profile</h4></div>An elegant Digimon residing in Ryushogu, also known as the Dragon Crystal Palace, an aquatic zone in the eastern region of the Digital World. It translucent body is constantly shimmering with a faint light that enchants all who see it.<br />
+　Not only is Ryugumon beautiful in appearance, it also possesses advanced combat abilities. The peaceful nature of the Dragon Crystal Palace, a paradise to all Digimon that live in its waters, is thanks to Ryugumon. It is revered as both the palace's master and guardian.<br />
+　It possesses high intelligence and a peaceful disposition. By nature it despises conflict of any sort, but should harm come to the Dragon Crystal Palace, Ryugumon will release all of its mystical power to oppose the threat. Ryugumon can absorb energy through the fins on its tail, or it can share that energy with others. It also bears the responsibility of purifying the Dragon Crystal Palace to its normal state.<br />
+　As for special moves, Ryugumon can utilize water pressure to encircle an enemy and crush it with Ceremonial Sea Summon. And with Wadatsumi Purification, a devastating laser is unleashed from its head.							</section>
+
+														
+							<section class="p-ref__related">
+									<div class="c-titleRect">
+										<h4 class="c-titleRect__title  u-fsx11">See related Digimon here</h4>
+									</div>
+
+										<ul class="c-itemlist  c-itemlist--sp3col c-itemlist--justifyCenter">
+
+											
+												<li class="c-card c-card--imgSquare">
+													<a class="c-card__inner" href="./detail.php?directory_name=punkmon">
+														<div class="c-card__img">
+
+															
+																	<p><img src="../cimages/digimon/punkmon.jpg" alt="Punkmon" width="200"></p>
+
+															
+														</div>
+														<div class="c-card__info">
+															<span class="c-card__title">
+																Punkmon</span>
+															<span class="c-card__title">Dark Dragon / Virus</span>
+														</div>
+													</a>
+												</li>
+
+											
+												<li class="c-card c-card--imgSquare">
+													<a class="c-card__inner" href="./detail.php?directory_name=proganomon">
+														<div class="c-card__img">
+
+															
+																	<p><img src="../cimages/digimon/proganomon.jpg" alt="Proganomon" width="200"></p>
+
+															
+														</div>
+														<div class="c-card__info">
+															<span class="c-card__title">
+																Proganomon</span>
+															<span class="c-card__title">Mineral / Virus</span>
+														</div>
+													</a>
+												</li>
+
+											
+												<li class="c-card c-card--imgSquare">
+													<a class="c-card__inner" href="./detail.php?directory_name=dinomon">
+														<div class="c-card__img">
+
+															
+																	<p><img src="../cimages/digimon/dinomon.jpg" alt="Dinomon" width="200"></p>
+
+															
+														</div>
+														<div class="c-card__info">
+															<span class="c-card__title">
+																Dinomon</span>
+															<span class="c-card__title">Dinosaur / Vaccine</span>
+														</div>
+													</a>
+												</li>
+
+																					</ul>
+							</section>
+														
+										<script>
+		$(function() {
+				// (isMSBrowser) ? 'reference/img_detail.php?directory_name=omedamon'
+				var isMSBrowser = (/edge|trident\/7/i).test(navigator.userAgent);
+				var imgSrc = $('.p-ref__picitem img').attr('src');
+											if (!isMSBrowser) {
+												$('.p-ref__picitem a').attr('data-fancybox', '');
+			}
+											// var aTag = (isMSBrowser) ?
+											// 	'<a href="img_detail.php?directory_name=omedamon" class="c-hoverImgWrap c-zoomWrap" target="_blank"></a>' :
+											// 	'<a href="' + imgSrc + '" class="c-hoverImgWrap c-zoomWrap" data-fancybox></a>';
+											// $('.p-ref__picitem img').wrap(aTag);
+											if (location.search.indexOf('directory_name=omedamon') !== -1) {}
+		});
+	</script>
+		
+															
+						</div>
+					</section>
+
+					
+					<article class="l-contents l-contents--transparent">
+						<div class="c-titleRect">
+							<h3 class="c-titleRect__title  u-fsx11">Access Ranking</h3>
+						</div>
+
+
+						<div class="u-cb u-mw1100">
+							<ul class="c-listRanking2"><li><section class="c-card c-card--imgSquare"><a class="c-card__inner" href="../reference/detail.php?directory_name=jougamon"><div class="c-card__img"><img src="../cimages/digimon/jougamon.jpg" alt="" loading="lazy"></div><div class="c-card__info"><div class="c-card__title">Jougamon</div></div></a></section></li><li><section class="c-card c-card--imgSquare"><a class="c-card__inner" href="../reference/detail.php?directory_name=omegamon"><div class="c-card__img"><img src="../cimages/digimon/omegamon.jpg" alt="" loading="lazy"></div><div class="c-card__info"><div class="c-card__title">Omnimon</div></div></a></section></li><li><section class="c-card c-card--imgSquare"><a class="c-card__inner" href="../reference/detail.php?directory_name=pyramidimon"><div class="c-card__img"><img src="../cimages/digimon/pyramidimon.jpg" alt="" loading="lazy"></div><div class="c-card__info"><div class="c-card__title">Pyramidimon</div></div></a></section></li></ul>
+						</div>
+					</article>
+
+					
+				</div>
+			</div>
+		</div>
+		
+<div class="l-section l-section--transparent">
+    <div class="l-section__inner">
+      <ul class="p-bnrs p-bnrs--typeSquare" data-whats-navi-type="footer">
+          <li><a class="c-btn" href="../about/">
+              <p><img src="../images/whats/img_about.png" alt="アイコン"></p>
+              <p>About Digimon</p>
+            </a>
+          </li>
+          <li><a class="c-btn" href="../history/">
+              <p><img src="../images/whats/img_history.png" alt="アイコン"></p>
+              <p>LCD Toy History</p>
+            </a>
+          </li>
+          <li><a class="c-btn" href="https://digimon-gameportal.bn-ent.net/product/" target="_blank" rel="noopener">
+              <p><img src="../images/whats/img_product.png" alt="アイコン"></p>
+              <p>
+                Game product list<br>
+                <span class="note">* Transition to the Digimon Game Portal</span>
+              </p>
+            </a>
+          </li>
+          <li><a class="c-btn" href="../x-evo/">
+              <p><img src="../images/whats/img_x-evo.png" alt="アイコン"></p>
+              <p>X Antibody Digimon Special Page</p>
+            </a>
+          </li>
+          <li><a class="c-btn" href="../z-pendulum/">
+              <p><img src="../images/whats/img_z-pendulum.png?" alt="アイコン"></p>
+              <p><span class="pg-fun-whats-navi-txt">Digimon Pendulum Z<br />
+Folder Continent Report</span></p>
+            </a>
+          </li>
+          <li data-whats-navi-name="profile"><a class="c-btn" href="../profile/">
+              <p>
+                              </span>
+              <img src="../images/whats/img_profile.png?v2" alt="アイコン"></p>
+              <p><span class="pg-fun-whats-navi-txt">Research report storage by Agumon Expert<br />
+Digimon profile</span></p>
+            </a>
+          </li>
+          <li data-whats-navi-name=journal><a class="c-btn" href="../journal/">
+              <p><img src="../images/whats/img_journal.jpg" alt="アイコン"></p>
+              <p>              <span class="pg-fun-whats-navi-txt">Digimon Journal</span></p>
+            </a>
+          </li>
+          <li data-whats-navi-name=journal><a class="c-btn" href="../digimonseekers/">
+              <p><img src="../images/whats/img_digimonseekers.jpg" alt="アイコン"></p>
+              <p>
+                                <span class="pg-fun-whats-navi-txt">Digimon Seekers</span>
+              </p>
+            </a>
+          </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="c-btnlist c-btnlist--beforeFooter">
+          <div>&nbsp;<a href="./index.php">Home</a>&nbsp;</div>
+      </div>
+
+<aside>
+  <h2 class="u-hidden">SNS</h2>
+  <script>
+    function openw(url, wname) {
+      window.open(url, wname, 'width=650, height=470, personalbar=0, toolbar=0, scrollbars=1, sizable=1');
+      return false;
+    }
+  </script>
+  <ul class="p-snslist">
+    <li><a onclick="openw('//twitter.com/share?text=Ryugumon+%7C+Digimon+Encyclopedia+%7C+Digimon+Web+%7C+Digimon+Official+General+Site%20%23デジモン%20%23digimon&url=https://digimon.net/reference_en/detail.php?directory_name=ryugumon','tw')" href="javascript:;" rel="nofollow"><img src="../images/common/ico_tw.png" alt=""></a></li>
+    <li><a onclick="openw('//www.facebook.com/sharer.php?u=https%3A%2F%2Fdigimon.net%2Freference_en%2Fdetail.php%3Fdirectory_name%3Dryugumon','fb')" class="facebook icon-facebook" href="javascript:;"><img src="../images/common/ico_fb.png" alt=""></a></li>
+    <li><a onclick="openw('//social-plugins.line.me/lineit/share?url=https%3A%2F%2Fdigimon.net%2Freference_en%2Fdetail.php%3Fdirectory_name%3Dryugumon','ln')" href="javascript:;"><img src="../images/common/ico_ln.png" alt=""></a></li>
+  </ul>
+</aside>
+
+
+<footer class="l-footer p-footer">
+
+  <a href="#" class="c-btnPageTop" id="js-btnPageTop"><span></span></a>
+  <div class="p-footer__inner">
+
+    <p class="p-footer__copyright">
+      &copy; BANDAI<br />
+      &copy; Akiyoshi Hongo, Toei Animation<br />
+      &copy; Akiyoshi Hongo, Fuji TV, Toei Animation<br />
+      &copy; Toei, Shueisha,Toei Animation<br />
+      &copy; Toei, Toei Animation, Shueisha, Fuji TV, Bandai<br />
+      &copy; Toei, Toei Animation, Bandai, Yomiuri Advertising Company<br />
+      &copy; Toei, Toei Animation, Bandai, Shueisha, Yomiko Advertising<br />
+      &copy; Toei ,Toei Animation , Bandai, Yomiuri Advertising, Shueisha<br />
+      &copy; 2006 DSTM Production Committee<br />
+      &copy; BANDAI NAMCO Entertainment Inc.    </p>
+    <div class="footerBandaiToys__caution">
+      <p>* The images on this website are for illustration purposes only. Please be aware that these may differ from the actual product.</p><p>* Unauthorized use or reproduction of any imagery, text, or data contained in this website is strictly prohibited.</p><p>* To properly browse this website, please check​ <a href="../notice/requirements/"> the system requirements.​</a></p><p>* This site uses cookie information granted in order to use some services.<br>By using this site, you agree to the use of cookies. Please check our​​ <a href="http://www.bandai.co.jp/site/privacy.html" target="_blank" rel="noopener">privacy policy (Japanese)​</a> for more information.</p><p>* Prices are the manufacturer's suggested retail price.</p><p>* Please note that information on this website such as product names, release dates, and prices are subject to change.</p><p>* This site is based on Japanese.</p><p>* For languages other than Japanese, machine translation is used, so there may be incorrect translations.</p><p>* Digimon names and other names may differ from Japanese depending on the language.</p><p>* If the name is decided in each language, the notation of the name may change.</p>      <p><a class="ot-sdk-show-settings" style="color:#ff0;text-decoration: underline;cursor: pointer;">Cookie Settings</a></p>
+      
+          </div>
+    <div class="fotterBandaiToys__link">
+      <ul>
+        <li><a href="https://www.bandai.co.jp/site/notice/" target="_blank">Website terms and conditions</a></li>
+        <li><a href="https://www.bandai.co.jp/site/s_policy/" target="_blank">Social media policy</a></li>
+        <li><a href="https://www.bandai.co.jp/site/privacy/" target="_blank">Privacy policy</a></li>
+        <li><a href="https://support.bandai.co.jp/s/" target="_blank">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>	</div>
+	<script>
+		$(function() {
+			var $piclist = $('[data-piclist]').children();
+			console.log('piclist:', $piclist.length);
+			if (1 < $piclist.length) {
+				$('[data-picbtn]').click(function() {
+					$('[data-piclist]').append($('[data-piclist]').children().eq(0));
+				});
+			} else {
+				$('[data-picbtn]').hide();
+			}
+		});
+	</script>
+	</body>
+
+</html>
