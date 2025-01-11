@@ -8,8 +8,16 @@ public static class DF //Stands for Data Formatter
 	{
 		try
 		{
-			if(ValidateDigimon(digimon))
+			if(ValidateDigimon(digimon) && digimon.SpecialMoves != null)
 			{
+				ICollection<String> SpecialMoves = new HashSet<String>();
+				foreach(SpecialMove sMove in digimon.SpecialMoves)
+				{
+					if(sMove.Name != null)
+					{
+						SpecialMoves.Add(sMove.Name);
+					}
+				}
 				var jsoned = new
 				{
 					digimon.Name,
@@ -18,7 +26,7 @@ public static class DF //Stands for Data Formatter
 					Type = digimon.Type?.Name,
 					Tier = digimon.Tier?.Name,
 					Attribute = digimon.Attribute?.Name,
-					digimon.SpecialMoves
+					SpecialMoves
 				};
 				return jsoned;
 			}
@@ -42,7 +50,6 @@ public static class DF //Stands for Data Formatter
 			   digimon.ImgUrl != null &&
 			   digimon.Tier != null &&
 			   digimon.Attribute != null &&
-			   digimon.Type != null &&
-			   digimon.SpecialMoves != null;
+			   digimon.Type != null;
 	}
 }

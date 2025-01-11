@@ -26,9 +26,10 @@ app.MapGet("/test", () =>
 		specialMoves.Add(new SpecialMove("Zero Heavens"));
 		specialMoves.Add(new SpecialMove("Devotion Field"));
 		Digimon testDigimon = new Digimon("Dominimon", "Desc", "imgURL", new Tier("Mega"), new DigimonAPI.entities.Type("Dominion"), new DigimonAPI.entities.Attribute("Vaccine"), specialMoves);
-		if(testDigimon != null)
+		object? jsoned = DF.FormatDigimon(testDigimon);
+		if(jsoned != null)
 		{
-			return Results.Json(testDigimon, options); //Results
+			return Results.Json(jsoned, options); //Results. AOT was been disabled due to the annoying warning :D
 		} 
 		else
 		{
