@@ -4,11 +4,11 @@ namespace DigimonAPI.services;
 public static class DF //Stands for Data Formatter
 {
 	//get structured data from an Digimon object
-	public static Object? FormatDigimon(Digimon digimon)
+	public static Object? FormatDigimon(Digimon? digimon)
 	{
 		try
 		{
-			if(ValidateDigimon(digimon) && digimon.SpecialMoves != null)
+			if(digimon != null && ValidateDigimon(digimon) && digimon.SpecialMoves != null)
 			{
 				ICollection<String> SpecialMoves = new HashSet<String>();
 				foreach(SpecialMove sMove in digimon.SpecialMoves)

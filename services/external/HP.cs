@@ -1,6 +1,8 @@
 //The main goal of this class is to provide HTML from valid webpages. Its only function receive a webpage link and return its HTML as a String.
 using System.Net.Http;
 
+namespace DigimonAPI.services;
+
 public static class HP // Stands for HTML Provider
 {
 	private static readonly HttpClient _httpClient = new HttpClient

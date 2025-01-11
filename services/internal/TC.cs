@@ -1,4 +1,5 @@
 //This class is for tests only. It will create .txt documents with Strings.
+namespace DigimonAPI.services;
 public static class TC // Stands for Txt Creator
 {
 	//Directory where the txt document will be created

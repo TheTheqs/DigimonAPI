@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using System.Net;
 using System.Text.Json;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,32 +18,30 @@ var options = new JsonSerializerOptions { WriteIndented = true };
 //standart endpoint
 app.MapGet("/", () => "Hello, World!");
 
-app.MapGet("/test", async () =>
+app.MapGet("/{Id}", async (string Id) =>
 {
 	try
 	{
-		String webPage = "https://digimon.net/reference_en/detail.php?directory_name=ryugumon";
-		String? providadedHTML = await HP.GetHTML(webPage);
-		if (providadedHTML == null)
+		//Index validation
+		if(string.IsNullOrWhiteSpace(Id))
 		{
-			return Results.NotFound("HTML is null!");
-		} 
-		else
-		{
-			if(TC.GenerateTxt(providadedHTML))
-			{
-				return Results.Ok("TXT was successfully generated!");
-			}
-			else
-			{
-				return Results.BadRequest("Failed to generate TXT");
-			}
+			return Results.NotFound("[System] Invalid ID provided!");
 		}
+		int index = int.Parse(Id);
+		//Trying to get digimon from Digimon.net
+		Digimon? digimon = await DS.ParseDigimon(index);
+		//Data Format
+		object? jsoned = DF.FormatDigimon(digimon);
+		if(jsoned != null)
+		{
+			return Results.Json(jsoned, options);
+		}
+		return Results.NotFound("No digimon found!");
 	}
 	catch(Exception err)
 	{
-		Console.WriteLine(err.Message);
-		return Results.NotFound("An error has occurred!");
+		Console.WriteLine("[ERROR] Get Digimon:" +  err.Message);
+		return Results.NotFound("[ERROR] Get Digimon: An error has occurred!");
 	}
 });
 
