@@ -2,6 +2,7 @@
 using DigimonAPI.entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -10,9 +11,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace WebApplication1.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250111164206_AddNewChanges")]
+    partial class AddNewChanges
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -34,7 +37,7 @@ namespace WebApplication1.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("character varying(50)");
 
-                    b.Property<int?>("StrongId")
+                    b.Property<int?>("StringId")
                         .HasColumnType("integer");
 
                     b.Property<int?>("WeakId")
@@ -42,7 +45,7 @@ namespace WebApplication1.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("StrongId");
+                    b.HasIndex("StringId");
 
                     b.HasIndex("WeakId");
 
@@ -80,9 +83,6 @@ namespace WebApplication1.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("AttributeId");
-
-                    b.HasIndex("ImgUrl")
-                        .IsUnique();
 
                     b.HasIndex("TierId");
 
@@ -167,7 +167,7 @@ namespace WebApplication1.Migrations
                 {
                     b.HasOne("DigimonAPI.entities.Attribute", "StrongAgainst")
                         .WithMany()
-                        .HasForeignKey("StrongId")
+                        .HasForeignKey("StringId")
                         .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("DigimonAPI.entities.Attribute", "WeakAgainst")

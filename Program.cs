@@ -14,7 +14,7 @@ var app = builder.Build();
 
 //JSON formating
 var options = new JsonSerializerOptions { WriteIndented = true };
-
+//Favicon
 //standart endpoint
 app.MapGet("/", () => "Hello, World!");
 
@@ -23,13 +23,13 @@ app.MapGet("/{Id}", async (string Id) =>
 	try
 	{
 		//Index validation
-		if(string.IsNullOrWhiteSpace(Id))
+		if (string.IsNullOrWhiteSpace(Id) || !int.TryParse(Id, out int index))
 		{
 			return Results.NotFound("[System] Invalid ID provided!");
 		}
-		int index = int.Parse(Id);
+
 		//Trying to get digimon from Digimon.net
-		Digimon? digimon = await DS.ParseDigimon(index);
+		Digimon? digimon = await DDB.SaveDigimon(await DS.ParseDigimon(index));
 		//Data Format
 		object? jsoned = DF.FormatDigimon(digimon);
 		if(jsoned != null)

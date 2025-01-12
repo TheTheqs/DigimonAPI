@@ -15,14 +15,26 @@ public class AppDbContext : DbContext
 	{
 		optionsBuilder.UseNpgsql("Host=localhost;Database=digimon_db;Username=postgres;Password=Marina22");
 	}
-
+	//Empty constructo is necessary
+	public AppDbContext() { }
 	public AppDbContext(DbContextOptions<AppDbContext> options)
 	  : base(options)
 	{
 	}
 	protected override void OnModelCreating(ModelBuilder modelBuilder)
 	{
+		modelBuilder.Entity<Digimon>()
+	   .HasIndex(d => d.ImgUrl)
+	   .IsUnique();
 		// Model creating relation config
+		modelBuilder.Entity<Digimon>()
+		.HasMany(d => d.SpecialMoves)
+		.WithMany(sm => sm.Digimons)
+		.UsingEntity<Dictionary<string, object>>(
+		"DigimonSpecialMove", 
+		dsm => dsm.HasOne<SpecialMove>().WithMany().HasForeignKey("SpecialMoveId"),
+		dsm => dsm.HasOne<Digimon>().WithMany().HasForeignKey("DigimonId")
+	);
 		modelBuilder.Entity<Attribute>()
 			.HasOne(a => a.WeakAgainst)
 			.WithMany()
@@ -32,7 +44,7 @@ public class AppDbContext : DbContext
 		modelBuilder.Entity<Attribute>()
 			.HasOne(a => a.StrongAgainst)
 			.WithMany()
-			.HasForeignKey(a => a.StringId)
+			.HasForeignKey(a => a.StrongId)
 			.OnDelete(DeleteBehavior.Restrict);
 	}
 }

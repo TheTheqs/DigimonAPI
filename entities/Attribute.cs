@@ -11,7 +11,7 @@ public partial class Attribute
 	public int? WeakId { get; set; }
 	public Attribute? WeakAgainst { get; set; }
 
-	public int? StringId { get; set; }
+	public int? StrongId { get; set; }
 	public Attribute? StrongAgainst { get; set; }
 
 	public ICollection<Digimon>? Digimons { get; set; }

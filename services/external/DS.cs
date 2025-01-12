@@ -4,13 +4,14 @@
 using HtmlAgilityPack;
 
 namespace DigimonAPI.services;
-public static class DS //Stands for DataBase seeder
+public static class DS //Stands for DataBase Seeder
 {
 	private static string baseUrl = "https://digimon.net/reference_en/detail.php?directory_name=";
 
 	//Main function, get a html and try to get the dinamic elementos from it. This works only for the Digimon.net format.
 	public static async Task<Digimon?> ParseDigimon(int index)
 	{
+		Console.WriteLine(directoryNames.Length);
 		try
 		{
 			if (index < 0 || index >= directoryNames.Length)
