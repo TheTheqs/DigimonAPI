@@ -119,7 +119,7 @@ public static class DDB // Stands for Digimon Database
 				Console.WriteLine($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}][System] Digimon Database: Getting insertable Digimon");
 				if (ValidateForDatabaseInsertion(newDigimon))
 				{
-					Console.WriteLine($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}][System] Digimon Database: Insertable digimon OK, Requesting insetion...");
+					Console.WriteLine($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}][System] Digimon Database: Insertable digimon OK, Requesting insertion...");
 					await context.Digimons.AddAsync(newDigimon);
 					await context.SaveChangesAsync();
 					Console.WriteLine($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}][System] Digimon Database: Successfully saved {newDigimon.Name} in the database.");
@@ -214,5 +214,26 @@ public static class DDB // Stands for Digimon Database
 
 		// Return true if everything is okay
 		return true;
+	}
+
+	//This function will provide the max id from the digimon table. Necessary to populate the system
+	public static async Task<int> GetMaxIdAsync()
+	{
+		try
+		{
+			using var context = new AppDbContext(); //Pontual context variable
+
+			return await context.Digimons.MaxAsync(d => (int?)d.Id) ?? 0;
+
+		}
+		catch (Exception ex)
+		{
+			Console.WriteLine($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}][ERROR] Digimon Database: {ex.Message}");
+			if (ex.InnerException != null)
+			{
+				Console.WriteLine($"[Inner Exception] {ex.InnerException.Message}");
+			}
+			return 0;
+		}
 	}
 }

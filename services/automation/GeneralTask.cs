@@ -4,10 +4,11 @@ namespace DigimonAPI.services;
 public class AutoTask : IHostedService, IDisposable //Stands for Hosted Service
 {
 	private Timer? timer;
-	private readonly TimeSpan interval = TimeSpan.FromSeconds(15); //Period between every excecution. This can be edited
+	private readonly TimeSpan interval = TimeSpan.FromSeconds(17); //Period between every excecution. This can be edited
 	private bool isRunning = false; //Conflit controler
 	//The int below is temporary. It wil be used only at the DB population task.
 	private int cindex =  0;
+	private bool updatedIndex = false;
 
 	public Task StartAsync(CancellationToken cancellationToken)
 	{
@@ -51,6 +52,11 @@ public class AutoTask : IHostedService, IDisposable //Stands for Hosted Service
 
 	private async Task CurrentTask()
 	{
+		if(!updatedIndex)
+		{
+			cindex = await DDB.GetMaxIdAsync();
+			updatedIndex = true;
+		};
 		if(cindex == 1173) //1173 is the current size of the base array, wich means that in the number 1173 there is no more data to be added.
 		{
 			Console.WriteLine($"[{DateTime.Now:yyyy - MM - dd HH: mm: ss}][Automation] Auto Task: All data has been successfully added to the database. Please check the 'failed.txt' document for any missing entries. Closing the application...");
@@ -63,7 +69,8 @@ public class AutoTask : IHostedService, IDisposable //Stands for Hosted Service
 		}
 		else
 		{
-			Console.WriteLine($"[{DateTime.Now:yyyy - MM - dd HH: mm: ss}][Automation] Auto Task: Hosted Service task failed.");
+			Console.WriteLine($"[{DateTime.Now:yyyy - MM - dd HH: mm: ss}][Automation] Auto Task: Hosted Service task failed. Restarting the server...");
+			AM.RestartServerWithLog();
 		}
 		cindex++;
 	}
