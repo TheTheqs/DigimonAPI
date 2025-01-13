@@ -8,13 +8,13 @@ var builder = WebApplication.CreateBuilder(args);
 //framework dependencie
 builder.Services.AddDbContext<AppDbContext>(options =>
 	options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
-
+//Automation call (general)
+builder.Services.AddHostedService<AutoTask>();
 //build starter
 var app = builder.Build();
 
 //JSON formating
 var options = new JsonSerializerOptions { WriteIndented = true };
-//Favicon
 //standart endpoint
 app.MapGet("/", () => "Hello, World!");
 
@@ -25,7 +25,7 @@ app.MapGet("/{Id}", async (string Id) =>
 		//Index validation
 		if (string.IsNullOrWhiteSpace(Id) || !int.TryParse(Id, out int index))
 		{
-			return Results.NotFound("[System] Invalid ID provided!");
+			return Results.NotFound($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}][System] Invalid ID provided!");
 		}
 
 		//Trying to get digimon from Digimon.net
@@ -40,8 +40,8 @@ app.MapGet("/{Id}", async (string Id) =>
 	}
 	catch(Exception err)
 	{
-		Console.WriteLine("[ERROR] Get Digimon:" +  err.Message);
-		return Results.NotFound("[ERROR] Get Digimon: An error has occurred!");
+		Console.WriteLine($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}][ERROR] Get Digimon:" +  err.Message);
+		return Results.NotFound($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}][ERROR] Get Digimon: An error has occurred!");
 	}
 });
 

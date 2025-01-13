@@ -33,4 +33,24 @@ public partial class Digimon
 		this.Attribute = null;
 		this.Type = null;
 	}
+	override
+	public String ToString()
+	{
+		String sMoves = "| ";
+		if(this.SpecialMoves != null)
+		{
+			foreach (SpecialMove move in this.SpecialMoves)
+			{
+				sMoves += (move.Name + " |");
+			}
+		}
+		return 
+			$"[Id: {this.Id}; " +
+			$"Name: {this.Name}; " +
+			$"ImgUrl: {this.ImgUrl}; " +
+			$"Tier: {this.Tier?.Name}; " +
+			$"Attribute: {this.Attribute?.Name}; " +
+			$"Type: {this.Type?.Name}; " +
+			$"Special Moves: {sMoves}]";
+	}
 }

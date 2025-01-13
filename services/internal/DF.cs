@@ -37,7 +37,7 @@ public static class DF //Stands for Data Formatter
 		}
 		catch (Exception e)
 		{
-			Console.WriteLine(e.Message);
+			Console.WriteLine($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}][ERROR] Data Formater: " + e.Message);
 			return null;
 		}
 	}
