@@ -20,6 +20,7 @@ public static class DF //Stands for Data Formatter
 				}
 				var jsoned = new
 				{
+					digimon.Id,
 					digimon.Name,
 					digimon.Description,
 					digimon.ImgUrl,
@@ -41,7 +42,40 @@ public static class DF //Stands for Data Formatter
 			return null;
 		}
 	}
-
+	//get structured data for Special Move
+	public static Object? FormatSpecialMove(SpecialMove? sMove)
+	{
+		try
+		{
+			if (sMove != null && sMove.Digimons != null)
+			{
+				ICollection<String> digimons = new HashSet<String>();
+				foreach (Digimon digimon in sMove.Digimons)
+				{
+					if (digimon.Name != null)
+					{
+						digimons.Add(digimon.Name);
+					}
+				}
+				var jsoned = new
+				{
+					sMove.Id,
+					sMove.Name,
+					knownByDigimons = digimons
+				};
+				return jsoned;
+			}
+			else
+			{
+				throw new InvalidObjectException();
+			}
+		}
+		catch (Exception e)
+		{
+			Console.WriteLine($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}][ERROR] Data Formater: " + e.Message);
+			return null;
+		}
+	}
 	//Validation function.
 	private static bool ValidateDigimon(Digimon digimon)
 	{

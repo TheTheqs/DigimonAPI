@@ -236,4 +236,29 @@ public static class DDB // Stands for Digimon Database
 			return 0;
 		}
 	}
+	//Get digimon by ID
+	public static async Task<Digimon?> GetDigimonById(int Id)
+	{
+		try
+		{
+			if (Id <= 0 || Id >= 1174)
+			{
+				throw new ArgumentOutOfRangeException(nameof(Id), "Invalid ID. Argument must be an integer between 1 and 1173.");
+			}
+
+			// Pontual instance for the DB connection
+			using var context = new AppDbContext();
+			return await context.Digimons
+						.Include(d => d.Tier)
+						.Include(d => d.Type)
+						.Include(d => d.Attribute)
+						.Include(d => d.SpecialMoves)
+						.FirstOrDefaultAsync(d => d.Id == Id);
+		}
+		catch (Exception ex)
+		{
+			Console.WriteLine($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}][ERROR] Digimon Database: Error while retrieving Digimon: Id = {Id}. " + ex.Message);
+			return null;
+		}
+	}
 }

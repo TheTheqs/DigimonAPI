@@ -38,4 +38,26 @@ public static class SDB //Stands for SpecialMoves DataBase
 			return null; //The null response will be well treated by the request
 		}
 	}
+	//Get smove by id
+	public static async Task<SpecialMove?> GetSpecialMoveById(int Id)
+	{
+		try
+		{
+			if (Id <= 0 || Id >= 2011)
+			{
+				throw new ArgumentOutOfRangeException(nameof(Id), "Invalid ID. Argument must be an integer between 1 and 2010.");
+			}
+
+			// Pontual instance for the DB connection
+			using var context = new AppDbContext();
+			return await context.SpecialMoves
+				.Include(d => d.Digimons)
+				.FirstOrDefaultAsync(s => s.Id == Id);
+		}
+		catch (Exception ex)
+		{
+			Console.WriteLine($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}][ERROR] Special Move Database: Error while retrieving Special Move: Id = {Id}. " + ex.Message);
+			return null;
+		}
+	}
 }
