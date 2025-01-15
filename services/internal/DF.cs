@@ -61,6 +61,7 @@ public static class DF //Stands for Data Formatter
 				{
 					sMove.Id,
 					sMove.Name,
+					sMove.Description,
 					knownByDigimons = digimons
 				};
 				return jsoned;

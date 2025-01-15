@@ -1,3 +1,4 @@
+using DigimonAPI.Services;
 using Microsoft.EntityFrameworkCore;
 using System.Net;
 using System.Text.Json;
@@ -9,7 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<AppDbContext>(options =>
 	options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 //Automation call (general)
-//builder.Services.AddHostedService<AutoTask>(); //Automation command
+builder.Services.AddHostedService<AutoTask>(); //Automation command
 //build starter
 var app = builder.Build();
 
@@ -68,4 +69,5 @@ app.MapGet("/move/{Id}", async (string Id) =>
 		return Results.StatusCode(500);
 	}
 });
+
 app.Run();

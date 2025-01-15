@@ -8,4 +8,10 @@ public partial class SpecialMove
 	{
 		this.Name = typeName;
 	}
+
+	override
+		public String ToString()
+	{
+		return $"[{this.Name}: {this.Description}]";
+	}
 }

@@ -5,6 +5,7 @@ public static class TC // Stands for Txt Creator
 	//Directory where the txt document will be created
 	private static String filePath = @"C:\Users\Matheqs\Desktop\DotNetClass\Studio\DigimonAPI\WebApplication1\documentation\output\output.txt";
 	private static String failedPath = @"C:\Users\Matheqs\Desktop\DotNetClass\Studio\DigimonAPI\WebApplication1\documentation\output\failed.txt";
+	private static String smPath = @"C:\Users\Matheqs\Desktop\DotNetClass\Studio\DigimonAPI\WebApplication1\documentation\output\nottrustabledescriptions.txt";
 	public static bool GenerateTxt(String content)
 	{
 		try
@@ -30,6 +31,22 @@ public static class TC // Stands for Txt Creator
 			//adding the line
 			File.AppendAllText(failedPath, index.ToString() + Environment.NewLine);
 			Console.WriteLine($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}][System] TXT CREATOR: index {index} was successfully registered.");
+		}
+		catch (Exception ex)
+		{
+			Console.WriteLine($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}][ERROR] TXT CREATOR: " + ex.Message);
+		}
+	}
+
+	public static void GerenateSMDFailure(string? sMove)
+	{
+		try
+		{
+			//making sure the document is there
+			Directory.CreateDirectory(Path.GetDirectoryName(smPath)!);
+			//adding the line
+			File.AppendAllText(smPath, sMove + Environment.NewLine);
+			Console.WriteLine($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}][System] TXT CREATOR: Not Trustable Description was registered: {sMove}");
 		}
 		catch (Exception ex)
 		{

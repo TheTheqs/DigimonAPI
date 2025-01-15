@@ -132,3 +132,6 @@ C:\Users\Matheqs\Desktop\DotNetClass\Studio\DigimonAPI\WebApplication1\obj\Debug
 C:\Users\Matheqs\Desktop\DotNetClass\Studio\DigimonAPI\WebApplication1\obj\Debug\net8.0\WebApplication1.genruntimeconfig.cache
 C:\Users\Matheqs\Desktop\DotNetClass\Studio\DigimonAPI\WebApplication1\obj\Debug\net8.0\ref\WebApplication1.dll
 C:\Users\Matheqs\Desktop\DotNetClass\Studio\DigimonAPI\WebApplication1\bin\Debug\net8.0\HtmlAgilityPack.dll
+C:\Users\Matheqs\Desktop\DotNetClass\Studio\DigimonAPI\WebApplication1\bin\Debug\net8.0\OpenAI.dll
+C:\Users\Matheqs\Desktop\DotNetClass\Studio\DigimonAPI\WebApplication1\bin\Debug\net8.0\System.ClientModel.dll
+C:\Users\Matheqs\Desktop\DotNetClass\Studio\DigimonAPI\WebApplication1\bin\Debug\net8.0\System.Memory.Data.dll
