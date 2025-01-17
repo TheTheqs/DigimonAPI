@@ -95,6 +95,7 @@ public static class DS //Stands for DataBase Seeder
 	//The following static element holds all the digimons!!
 	private static string[] directoryNames = new string[]
 	{
+		"necromon",
 		"abbadomon",
 		"abbadomoncore",
 		"achillesmon",

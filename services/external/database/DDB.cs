@@ -216,7 +216,7 @@ public static class DDB // Stands for Digimon Database
 		return true;
 	}
 
-	//This function will provide the max id from the digimon table. Necessary to populate the system
+	//This function will provide the max id from the digimon table.
 	public static async Task<int> GetMaxIdAsync()
 	{
 		try
@@ -241,9 +241,10 @@ public static class DDB // Stands for Digimon Database
 	{
 		try
 		{
-			if (Id <= 0 || Id >= 1174)
+			int maxId = await GetMaxIdAsync();
+			if (Id <= 0 || Id > maxId)
 			{
-				throw new ArgumentOutOfRangeException(nameof(Id), "Invalid ID. Argument must be an integer between 1 and 1173.");
+				throw new ArgumentOutOfRangeException(nameof(Id), $"Invalid ID. Argument must be an integer between 1 and {maxId}.");
 			}
 
 			// Pontual instance for the DB connection
@@ -258,6 +259,46 @@ public static class DDB // Stands for Digimon Database
 		catch (Exception ex)
 		{
 			Console.WriteLine($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}][ERROR] Digimon Database: Error while retrieving Digimon: Id = {Id}. " + ex.Message);
+			return null;
+		}
+	}
+	//Get Digimons By Attribute
+	public static async Task<List<Digimon>?> GetDigimonsByAttributeId(int attId)
+	{
+		try
+		{
+			using var context = new AppDbContext();
+			return await context.Digimons
+				.Include(d => d.Tier)
+				.Include(d => d.Type)
+				.Include(d => d.Attribute)
+				.Include(d => d.SpecialMoves)
+				.Where(d => d.AttributeId == attId)
+				.ToListAsync();
+		}
+		catch (Exception ex)
+		{
+			Console.WriteLine($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}][ERROR] Digimon Database: Error while retrieving Digimon list by attribute id: Id = {attId}. " + ex.Message);
+			return null;
+		}
+	}
+	//Get digimon by Tier
+	public static async Task<List<Digimon>?> GetDigimonsByTierId(int tierId)
+	{
+		try
+		{
+			using var context = new AppDbContext();
+			return await context.Digimons
+				.Include(d => d.Tier)
+				.Include(d => d.Type)
+				.Include(d => d.Attribute)
+				.Include(d => d.SpecialMoves)
+				.Where(d => d.TierId == tierId)
+				.ToListAsync();
+		}
+		catch (Exception ex)
+		{
+			Console.WriteLine($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}][ERROR] Digimon Database: Error while retrieving Digimon list by attribute id: Id = {tierId}. " + ex.Message);
 			return null;
 		}
 	}

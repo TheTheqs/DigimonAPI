@@ -40,4 +40,34 @@ public static class TDB //Stands for Type Database
 			return null; //The null response will be well treated by the request
 		}
 	}
+	public static async Task<Tier?> GetTierById(int Id)
+	{
+		try
+		{
+			using var context = new AppDbContext();
+			return await context.Tiers
+				.FirstOrDefaultAsync(a => a.Id == Id);
+		}
+		catch (Exception ex)
+		{
+			Console.WriteLine($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}][ERROR] Tier Database: Error while retrieving Tier. Id = {Id} " + ex.Message);
+			return null; // The null response will be well treated by the request
+		}
+	}
+	//Get all Tiers
+	public static async Task<List<Tier>?> GetAllTiers()
+	{
+		try
+		{
+			using var context = new AppDbContext();
+			return await context.Tiers
+				.OrderBy(a => a.Id)
+				.ToListAsync();
+		}
+		catch (Exception ex)
+		{
+			Console.WriteLine($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}][ERROR] Attribute Database: Error while retrieving all attributes. " + ex.Message);
+			return null; // The null response will be well treated by the request
+		}
+	}
 }

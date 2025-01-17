@@ -43,9 +43,10 @@ public static class SDB //Stands for SpecialMoves DataBase
 	{
 		try
 		{
-			if (Id <= 0 || Id >= 2011)
+			int maxId = await GetMaxId();
+			if (Id <= 0 || Id > maxId)
 			{
-				throw new ArgumentOutOfRangeException(nameof(Id), "Invalid ID. Argument must be an integer between 1 and 2010.");
+				throw new ArgumentOutOfRangeException(nameof(Id), $"Invalid ID. Argument must be an integer between 1 and {maxId}.");
 			}
 			// Pontual instance for the DB connection
 			using var context = new AppDbContext();
@@ -89,7 +90,7 @@ public static class SDB //Stands for SpecialMoves DataBase
 			return null;
 		}
 	}
-
+	//Retrieve the id of the next null description in database. -1 if there is no null description
 	public static async Task<int> GetNextDescription()
 	{
 		try
@@ -98,7 +99,7 @@ public static class SDB //Stands for SpecialMoves DataBase
 
 			SpecialMove? result = await context.SpecialMoves
 				.FirstOrDefaultAsync(d => d.Description == null);
-			if (result == null) return 2011;
+			if (result == null) return -1;
 			return result.Id;
 
 		}
@@ -109,7 +110,30 @@ public static class SDB //Stands for SpecialMoves DataBase
 			{
 				Console.WriteLine($"[Inner Exception] {ex.InnerException.Message}");
 			}
-			return 2011;
+			return -1;
+		}
+	}
+
+	//Retrieve max id
+	public static async Task<int> GetMaxId()
+	{
+		try
+		{
+			using var context = new AppDbContext(); // Pontual instance for the DB connection
+
+			int maxId = await context.SpecialMoves
+									 .MaxAsync(sm => sm.Id);
+
+			return maxId;
+		}
+		catch (Exception ex)
+		{
+			Console.WriteLine($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}][ERROR] Special Move Database: {ex.Message}");
+			if (ex.InnerException != null)
+			{
+				Console.WriteLine($"[Inner Exception] {ex.InnerException.Message}");
+			}
+			return -1;
 		}
 	}
 }

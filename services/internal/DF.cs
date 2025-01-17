@@ -1,21 +1,142 @@
 // This class is responsible for preparing data to be sent, taking an object and returning structured data ready to be serialized.
+using System.Collections.Generic;
+
 namespace DigimonAPI.services;
 
 public static class DF //Stands for Data Formatter
 {
-	//get structured data from an Digimon object
+	//List Formating
+	public static Object? FormatList<T>(List<T>? list)
+	{
+		try
+		{
+			if (list == null || !list.Any())
+			{
+				throw new Exception("Input list is null or empty");
+			}
+
+			ICollection<string> result = new HashSet<string>();
+
+			// Iterate over the list and dynamically check for the 'Name' property
+			foreach (T item in list)
+			{
+				var nameProperty = item?.GetType().GetProperty("Name");
+				if (nameProperty != null)
+				{
+					var nameValue = nameProperty.GetValue(item) as string;
+					if (!string.IsNullOrEmpty(nameValue))
+					{
+						result.Add(nameValue);
+					}
+				}
+			}
+
+			// Dynamically determine the name of the class for the output object
+			string className = typeof(T).Name + "s"; // Pluralize the class name
+
+			var jsoned = new Dictionary<string, ICollection<string>>
+			{
+				{ className, result }
+			};
+
+			return jsoned;
+		}
+		catch (Exception e)
+		{
+			Console.WriteLine($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}][ERROR] Data Formatter: " + e.Message);
+			return null;
+		}
+	}
+	//Format Attribute
+	public static Object? FormatAttribute(DigimonAPI.entities.Attribute? attribute)
+	{
+		try
+		{
+			if (attribute != null)
+			{
+				var jsoned = new
+				{
+					attribute.Id,
+					attribute.Name,
+					WeakAgainst = attribute.WeakAgainst?.Name,
+					StrongAgainst = attribute.StrongAgainst?.Name,
+				};
+				return jsoned;
+			}
+			else
+			{
+				throw new InvalidObjectException();
+			}
+		}
+		catch (Exception e)
+		{
+			Console.WriteLine($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}][ERROR] Data Formater: " + e.Message);
+			return null;
+		}
+	}
+	//format attribute list
+	public static List<Object?>? FormatAttributeList(List<DigimonAPI.entities.Attribute>? aList)
+	{
+		try
+		{
+			if (aList == null || !aList.Any())
+			{
+				throw new Exception("Input list is null or empty");
+			}
+			ICollection<Object?> result = new HashSet<Object?>();
+			foreach (var attribute in aList)
+			{
+				if(attribute != null)
+				{
+					result.Add(FormatAttribute(attribute));
+				}
+			}
+			return result.ToList();
+		}
+		catch (Exception e)
+		{
+			Console.WriteLine($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}][ERROR] Data Formater: " + e.Message);
+			return null;
+		}
+	}
+	//Format Tier
+	public static Object? FormatTier(Tier? tier)
+	{
+		try
+		{
+			if (tier != null)
+			{
+				var jsoned = new
+				{
+					tier.Id,
+					tier.Name
+				};
+				return jsoned;
+			}
+			else
+			{
+				throw new InvalidObjectException();
+			}
+		}
+		catch (Exception e)
+		{
+			Console.WriteLine($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}][ERROR] Data Formater: " + e.Message);
+			return null;
+		}
+	}
+	//Format Digimon
 	public static Object? FormatDigimon(Digimon? digimon)
 	{
 		try
 		{
 			if(digimon != null && ValidateDigimon(digimon) && digimon.SpecialMoves != null)
 			{
-				ICollection<String> SpecialMoves = new HashSet<String>();
+				ICollection<Object?> SpecialMoves = new HashSet<Object?>();
 				foreach(SpecialMove sMove in digimon.SpecialMoves)
 				{
 					if(sMove.Name != null)
 					{
-						SpecialMoves.Add(sMove.Name);
+						SpecialMoves.Add(FormatSpecialMove(sMove));
 					}
 				}
 				var jsoned = new
@@ -42,7 +163,7 @@ public static class DF //Stands for Data Formatter
 			return null;
 		}
 	}
-	//get structured data for Special Move
+	//Format special move
 	public static Object? FormatSpecialMove(SpecialMove? sMove)
 	{
 		try

@@ -40,4 +40,38 @@ public static class ADB // Stands for Attribute Database
 			return null; // The null response will be well treated by the request
 		}
 	}
+	//Get all attributes
+	public static async Task<List<DigimonAPI.entities.Attribute>?> GetAllAttributes()
+	{
+		try
+		{
+			using var context = new AppDbContext();
+			return await context.Attributes
+				.Include(a => a.WeakAgainst)
+				.Include(a => a.StrongAgainst)
+				.OrderBy(a => a.Id)
+				.ToListAsync();
+		}
+		catch (Exception ex)
+		{
+			Console.WriteLine($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}][ERROR] Attribute Database: Error while retrieving all attributes. " + ex.Message);
+			return null; // The null response will be well treated by the request
+		}
+	}
+	public static async Task<DigimonAPI.entities.Attribute?> GetAttributeById(int Id)
+	{
+		try
+		{
+			using var context = new AppDbContext();
+			return await context.Attributes
+				.Include(a => a.WeakAgainst)
+				.Include(a => a.StrongAgainst)
+				.FirstOrDefaultAsync(a => a.Id == Id);
+		}
+		catch (Exception ex)
+		{
+			Console.WriteLine($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}][ERROR] Attribute Database: Error while retrieving attribute. Id = {Id} " + ex.Message);
+			return null; // The null response will be well treated by the request
+		}
+	}
 }
