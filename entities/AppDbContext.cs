@@ -92,5 +92,66 @@ public class AppDbContext : DbContext
 			"EventSpawn",
 			ese => ese.HasOne<Event>().WithMany().HasForeignKey("EventId"),
 			ese => ese.HasOne<SpawnEvent>().WithMany().HasForeignKey("SpawnEventId"));
+
+		//Artifact ContentArtifact n:n relation
+		modelBuilder.Entity<SpawnArtifact>()
+			.HasMany(sa => sa.Contents)
+			.WithMany(ca => ca.ArtifactsSpawns)
+			.UsingEntity<Dictionary<string, object>>(
+			"ArtifactsContents",
+			saca => saca.HasOne<ContentArtifacts>().WithMany().HasForeignKey("ContentId"),
+			saca => saca.HasOne<SpawnArtifact>().WithMany().HasForeignKey("SpawnId"));
+
+		//Digimon ContentDigimon n:n relation
+		modelBuilder.Entity<SpawnDigimon>()
+			.HasMany(sd => sd.Contents)
+			.WithMany(cd => cd.DigimonsSpawns)
+			.UsingEntity<Dictionary<string, object>>(
+			"DigimonsContents",
+			saca => saca.HasOne<ContentDigimons>().WithMany().HasForeignKey("ContentId"),
+			saca => saca.HasOne<SpawnDigimon>().WithMany().HasForeignKey("SpawnId"));
+
+		//Usable ContentUsable n:n relation
+		modelBuilder.Entity<SpawnUsable>()
+			.HasMany(ss => ss.Contents)
+			.WithMany(cs => cs.UsablesSpawns)
+			.UsingEntity<Dictionary<string, object>>(
+			"UsablesContents",
+			saca => saca.HasOne<ContentUsables>().WithMany().HasForeignKey("ContentId"),
+			saca => saca.HasOne<SpawnUsable>().WithMany().HasForeignKey("SpawnId"));
+
+		//Event ContentEvent n:n relation
+		modelBuilder.Entity<SpawnEvent>()
+			.HasMany(se => se.Contents)
+			.WithMany(ce => ce.EventsSpawns)
+			.UsingEntity<Dictionary<string, object>>(
+			"EventsContents",
+			saca => saca.HasOne<ContentEvents>().WithMany().HasForeignKey("ContentId"),
+			saca => saca.HasOne<SpawnEvent>().WithMany().HasForeignKey("SpawnId"));
+
+		// Dungeon -> ContentUsables (1:n relation)
+		modelBuilder.Entity<Dungeon>()
+			.HasOne(d => d.Usables)
+			.WithMany(cu => cu.Dungeons)
+			.HasForeignKey(d => d.UsablesContentId);
+
+		// Dungeon -> ContentEvents (1:n relation)
+		modelBuilder.Entity<Dungeon>()
+			.HasOne(d => d.Events)
+			.WithMany(ce => ce.Dungeons)
+			.HasForeignKey(d => d.EventsContentId);
+
+		// Dungeon -> ContentArtifacts (1:n relation)
+		modelBuilder.Entity<Dungeon>()
+			.HasOne(d => d.Artifacts)
+			.WithMany(ca => ca.Dungeons)
+			.HasForeignKey(d => d.ArtifactsContentId);
+
+		// Dungeon -> ContentDigimon (1:n relation)
+		modelBuilder.Entity<Dungeon>()
+			.HasOne(d => d.Digimons)
+			.WithMany(cd => cd.Dungeons)
+			.HasForeignKey(d => d.DigimonsContentId);
+
 	}
 }

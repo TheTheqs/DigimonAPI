@@ -7,7 +7,12 @@ public partial class SpawnDigimon
 {
 	[Key]
 	public int Id { get; set; }
+	[Range(1, 10)]
+	public int Tier { get; set; }
+	[RegularExpression("^(REGULAR|BOSSES)$", ErrorMessage = "Invalid CollectionType")]
+	public string? CollectionType { get; set; }
 	[Required]
 	public int Chance { get; set; }
 	public ICollection<Digimon>? Digimons { get; set; }
+	public ICollection<ContentDigimons>? Contents { get; set; }
 }
