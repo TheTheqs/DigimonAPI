@@ -16,4 +16,5 @@ public partial class Digimon
 	public int? AttributeId { get; set; }
 	public Attribute? Attribute { get; set; }
 	public ICollection<SpecialMove>? SpecialMoves { get; set; }
+	public ICollection<SpawnDigimon>? Spawns { get; set; }
 }
