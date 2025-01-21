@@ -11,7 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<AppDbContext>(options =>
 	options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 //Automation call (general)
-//builder.Services.AddHostedService<AutoTask>(); //Automation command
+builder.Services.AddHostedService<AutoTask>(); //Automation command
 //build starter
 var app = builder.Build();
 

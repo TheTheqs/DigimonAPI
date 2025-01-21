@@ -4,10 +4,12 @@ namespace DigimonAPI.services;
 public class AutoTask : IHostedService, IDisposable //Stands for Hosted Service
 {
 	private Timer? timer;
-	private readonly TimeSpan interval = TimeSpan.FromSeconds(15); //Period between every excecution. This can be edited
+	private readonly TimeSpan interval = TimeSpan.FromSeconds(5); //Period between every excecution. This can be edited
 	private bool isRunning = false; //Conflit controler
-	//The int below is temporary. It wil be used only at the DB population tasks.
+									//The int below is temporary. It wil be used only at the DB population tasks.
+	private int[][] arrays = null!;
 	private int cindex =  0;
+	private int maxIndex = 0;
 	private bool updatedIndex = false;
 
 	public Task StartAsync(CancellationToken cancellationToken)
@@ -54,24 +56,26 @@ public class AutoTask : IHostedService, IDisposable //Stands for Hosted Service
 	{
 		if(!updatedIndex)
 		{
-			cindex = await SDB.GetNextDescription();
+			arrays = StatsBuilder.GetStats(7, 13, 1, 3);
+			maxIndex = arrays.Length - 1;
 			updatedIndex = true;
-			Console.WriteLine($"[{DateTime.Now:yyyy - MM - dd HH: mm: ss}][Automation] Auto Task: Current index selected: {cindex}");
+			Console.WriteLine($"[{DateTime.Now:yyyy - MM - dd HH: mm: ss}][Automation] Auto Task: Array size generated: {arrays.Length}");
 
 		};
-		if(cindex > 2010)
+		if(cindex > maxIndex)
 		{
 			Console.WriteLine($"[{DateTime.Now:yyyy - MM - dd HH: mm: ss}][Automation] Auto Task: All data has been successfully added to the database. Please check the 'failed.txt' document for any missing entries. Closing the application...");
 			Environment.Exit(0);
 		}
-		bool result = await BSD.GenerateSkillDescription(cindex); //Calling the current task
-		if(result)
+		Stats? result = await StatsDB.SaveStats(arrays[cindex]); //Calling the current task
+		if(cindex < maxIndex && result != null)
 		{
+			Console.WriteLine($"Showing current stats example: {result.ToString()}");
 			Console.WriteLine($"[{DateTime.Now:yyyy - MM - dd HH: mm: ss}][Automation] Auto Task: Hosted Service task completed successfully.");
 		}
-		else
+		if(result == null)
 		{
-			Console.WriteLine($"[{DateTime.Now:yyyy - MM - dd HH: mm: ss}][Automation] Auto Task: Hosted Service task failed. Restarting the server...");
+			Console.WriteLine($"[{DateTime.Now:yyyy - MM - dd HH: mm: ss}][Automation] Auto Task: Hosted Service task failed. Ending server");
 			Environment.Exit(0);
 		}
 		cindex++;

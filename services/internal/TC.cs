@@ -1,4 +1,6 @@
 //This class is for tests only. It will create .txt documents with Strings.
+using static System.Formats.Asn1.AsnWriter;
+
 namespace DigimonAPI.services;
 public static class TC // Stands for Txt Creator
 {
@@ -47,6 +49,23 @@ public static class TC // Stands for Txt Creator
 			//adding the line
 			File.AppendAllText(smPath, sMove + Environment.NewLine);
 			Console.WriteLine($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}][System] TXT CREATOR: Not Trustable Description was registered: {sMove}");
+		}
+		catch (Exception ex)
+		{
+			Console.WriteLine($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}][ERROR] TXT CREATOR: " + ex.Message);
+		}
+	}
+
+	public static void StatsRegister(int[][] arrays)
+	{
+		try
+		{
+			Directory.CreateDirectory(Path.GetDirectoryName(smPath)!);
+			foreach (int[] intArray in arrays)
+			{
+				File.AppendAllText(smPath, "[" + string.Join(", ", intArray) + "]" + Environment.NewLine);
+			}
+			Console.WriteLine($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}][System] TXT CREATOR: Stast Test generated.");
 		}
 		catch (Exception ex)
 		{
