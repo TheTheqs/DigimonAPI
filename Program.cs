@@ -11,7 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<AppDbContext>(options =>
 	options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 //Automation call (general)
-builder.Services.AddHostedService<AutoTask>(); //Automation command
+//builder.Services.AddHostedService<AutoTask>(); //Automation command
 //build starter
 var app = builder.Build();
 
@@ -63,7 +63,7 @@ app.MapGet("/digimon/attribute/{Id}", async (string Id) =>
 			return Results.NotFound($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}][System] Invalid ID provided! Make sure the provided ID is an Integer between 1 and {maxId}.");
 		}
 
-		return Results.Json(DF.FormatList(jsoned), options);
+		return Results.Json(DF.FormatDigimonList(jsoned), options);
 	}
 	catch (Exception err)
 	{
@@ -88,7 +88,7 @@ app.MapGet("/digimon/tier/{Id}", async (string Id) =>
 			return Results.NotFound($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}][System] Invalid ID provided! Make sure the provided ID is an Integer between 1 and {maxId}.");
 		}
 
-		return Results.Json(DF.FormatList(jsoned), options);
+		return Results.Json(DF.FormatDigimonList(jsoned), options);
 	}
 	catch (Exception err)
 	{

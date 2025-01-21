@@ -1,4 +1,5 @@
 // This class is responsible for preparing data to be sent, taking an object and returning structured data ready to be serialized.
+using DigimonAPI.entities;
 using System.Collections.Generic;
 
 namespace DigimonAPI.services;
@@ -159,6 +160,35 @@ public static class DF //Stands for Data Formatter
 					SpecialMoves,
 					BaseStatus = stats
 				};
+				return jsoned;
+			}
+			else
+			{
+				throw new InvalidObjectException();
+			}
+		}
+		catch (Exception e)
+		{
+			Console.WriteLine($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}][ERROR] Data Formater: " + e.Message);
+			return null;
+		}
+	}
+	//Format Digimon list
+	public static Object? FormatDigimonList(List<Digimon> digimons)
+	{
+		try
+		{
+			if (digimons != null && digimons.Count > 0)
+			{
+				List<Object> jsoned = new List<Object>();
+				foreach(Digimon digimon in digimons)
+				{
+					var digi = FormatDigimon(digimon);
+					if(digi != null)
+					{
+						jsoned.Add(digi);
+					}
+				}
 				return jsoned;
 			}
 			else

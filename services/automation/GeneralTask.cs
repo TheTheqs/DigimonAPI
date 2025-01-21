@@ -56,7 +56,7 @@ public class AutoTask : IHostedService, IDisposable //Stands for Hosted Service
 	{
 		if(!updatedIndex)
 		{
-			List<Digimon>? digimonList = await DDB.GetDigimonsByTierId(7);
+			List<Digimon>? digimonList = await DDB.GetDigimonsByTierId(8);
 			if(digimonList == null)
 			{
 				digimonList = new List<Digimon>();
