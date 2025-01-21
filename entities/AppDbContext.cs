@@ -17,6 +17,7 @@ public class AppDbContext : DbContext
 	public DbSet<SpawnUsable> SpawnUsables { get; set; }
 	public DbSet<SpawnDigimon> SpawnDigimons { get; set; }
 	public DbSet<SpawnEvent> SpawnEvents { get; set; }
+	public DbSet<Stats> Stats { get; set; }
 
 
 	protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -153,5 +154,16 @@ public class AppDbContext : DbContext
 			.WithMany(cd => cd.Dungeons)
 			.HasForeignKey(d => d.DigimonsContentId);
 
+		// Digimon -> Stats (1: n relation)
+		modelBuilder.Entity<Stats>()
+			.HasOne(s => s.Digimon)
+			.WithMany(d => d.Stats)
+			.HasForeignKey(s => s.DigimonId);
+
+		// Artifact -> Stats (1: n relation)
+		modelBuilder.Entity<Stats>()
+			.HasOne(s => s.Artifact)
+			.WithMany(a => a.Stats)
+			.HasForeignKey(s => s.ArtifactId);
 	}
 }

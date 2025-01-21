@@ -10,4 +10,5 @@ public partial class Artifact
 
 	public string? Description { get; set; }
 	public ICollection<SpawnArtifact>? Spawns { get; set; }
+	public ICollection<Stats>? Stats { get; set; }
 }
