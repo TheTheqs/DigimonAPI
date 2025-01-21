@@ -1,4 +1,5 @@
 // This class deals with Digimon Database CRUD
+using DigimonAPI.entities;
 using Microsoft.EntityFrameworkCore;
 using System.Runtime.CompilerServices;
 
@@ -254,6 +255,7 @@ public static class DDB // Stands for Digimon Database
 						.Include(d => d.Type)
 						.Include(d => d.Attribute)
 						.Include(d => d.SpecialMoves)
+						.Include(d => d.Stats)
 						.FirstOrDefaultAsync(d => d.Id == Id);
 		}
 		catch (Exception ex)
@@ -273,6 +275,7 @@ public static class DDB // Stands for Digimon Database
 				.Include(d => d.Type)
 				.Include(d => d.Attribute)
 				.Include(d => d.SpecialMoves)
+				.Include(d => d.Stats)
 				.Where(d => d.AttributeId == attId)
 				.ToListAsync();
 		}
@@ -293,12 +296,52 @@ public static class DDB // Stands for Digimon Database
 				.Include(d => d.Type)
 				.Include(d => d.Attribute)
 				.Include(d => d.SpecialMoves)
+				.Include(d => d.Stats)
 				.Where(d => d.TierId == tierId)
 				.ToListAsync();
 		}
 		catch (Exception ex)
 		{
 			Console.WriteLine($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}][ERROR] Digimon Database: Error while retrieving Digimon list by attribute id: Id = {tierId}. " + ex.Message);
+			return null;
+		}
+	}
+	//Update digimon stats
+	public static async Task<Digimon?> GenerateDigimonStats(int digimonId)
+	{
+		try
+		{
+			using var context = new AppDbContext();
+			//Get Digimon
+			Digimon? existingDigimon = await GetDigimonById(digimonId);
+			if(existingDigimon != null && existingDigimon.Stats != null && existingDigimon.Stats.Count > 0)
+			{
+				Console.WriteLine($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}][System] Digimon Database: {existingDigimon.Name} already has stats. Retrieving from the database.");
+				return existingDigimon;
+			}
+			//Generate Stats
+			ICollection<Stats>? newStats = await StatsDB.GetRandomStats(3);
+			if(newStats is null || newStats.Count < 3 || existingDigimon is null)
+			{
+				throw new Exception("Invalid Digimon or Stats Collection");
+			}
+			foreach( Stats stats in newStats )
+			{
+
+				context.Attach(stats);
+			}
+			context.Attach(existingDigimon);
+			//make the association
+			existingDigimon.Stats = newStats;
+			//save changes
+			await context.SaveChangesAsync();
+
+			return await GetDigimonById(digimonId);
+
+		}
+		catch (Exception ex)
+		{
+			Console.WriteLine($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}][ERROR] Digimon Database: Error while trying to generate digimon stats: Id = {digimonId}. " + ex.Message);
 			return null;
 		}
 	}

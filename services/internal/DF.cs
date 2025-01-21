@@ -139,6 +139,14 @@ public static class DF //Stands for Data Formatter
 						SpecialMoves.Add(FormatSpecialMove(sMove));
 					}
 				}
+				string stats = "";
+				if(digimon.Stats != null && digimon.Stats.Count > 0)
+				{
+					foreach(Stats stat  in digimon.Stats)
+					{
+						stats += stat.ToString() + "\n";
+					}
+				}
 				var jsoned = new
 				{
 					digimon.Id,
@@ -148,7 +156,8 @@ public static class DF //Stands for Data Formatter
 					Type = digimon.Type?.Name,
 					Tier = digimon.Tier?.Name,
 					Attribute = digimon.Attribute?.Name,
-					SpecialMoves
+					SpecialMoves,
+					BaseStatus = stats
 				};
 				return jsoned;
 			}

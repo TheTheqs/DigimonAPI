@@ -54,4 +54,35 @@ public static class StatsDB // Stands for Stats Database
 			return null; // The null response will be well treated by the request
 		}
 	}
+	//Get 3 empty digimon stats
+	public static async Task<ICollection<Stats>?> GetRandomStats(int count)
+	{
+		Console.WriteLine($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}][System] Stats Database: Start generating Stats. ");
+		try
+		{
+			// Pontual instance for the DB connection
+			using var context = new AppDbContext();
+			//generate a list with random stats
+			ICollection<Stats>? results = await context.Stats
+						.Where(s => s.DigimonId == null)
+						.OrderBy(x => Guid.NewGuid())
+						.Take(count)
+						.ToListAsync();
+			if( results is null || results.Count == 0)
+			{
+				throw new Exception("Invalid generated collection!");
+			}
+			Console.WriteLine($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}][System] Stats Database: Stats collection was successfully generated: ");
+			foreach(Stats stat in results )
+			{
+				Console.WriteLine( stat.ToString() );
+			}
+			return results;
+		}
+		catch (Exception ex)
+		{
+			Console.WriteLine($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}][ERROR] Stats Database: Error while retrieving Random Stats." + ex.Message);
+			return null;
+		}
+	}
 }

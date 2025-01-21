@@ -37,6 +37,7 @@ public partial class Digimon
 	public String ToString()
 	{
 		String sMoves = "| ";
+		String stats = "";
 		if(this.SpecialMoves != null)
 		{
 			foreach (SpecialMove move in this.SpecialMoves)
@@ -44,13 +45,21 @@ public partial class Digimon
 				sMoves += (move.Name + " |");
 			}
 		}
+		if(this.Stats != null && this.Stats.Count > 0)
+		{
+			foreach(Stats stat  in this.Stats)
+			{
+				stats += stat.ToString() + " ";
+			}
+		}
 		return 
-			$"[Id: {this.Id}; " +
-			$"Name: {this.Name}; " +
-			$"ImgUrl: {this.ImgUrl}; " +
-			$"Tier: {this.Tier?.Name}; " +
-			$"Attribute: {this.Attribute?.Name}; " +
-			$"Type: {this.Type?.Name}; " +
-			$"Special Moves: {sMoves}]";
+			$"[Id: {this.Id};" +
+			$"Name: {this.Name};" +
+			$"ImgUrl: {this.ImgUrl};" +
+			$"Tier: {this.Tier?.Name};" +
+			$"Attribute: {this.Attribute?.Name};" +
+			$"Type: {this.Type?.Name};" +
+			$"Special Moves: {sMoves};" +
+			$"Stats:{stats}";
 	}
 }

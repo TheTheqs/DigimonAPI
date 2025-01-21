@@ -4,10 +4,10 @@ namespace DigimonAPI.services;
 public class AutoTask : IHostedService, IDisposable //Stands for Hosted Service
 {
 	private Timer? timer;
-	private readonly TimeSpan interval = TimeSpan.FromSeconds(5); //Period between every excecution. This can be edited
+	private readonly TimeSpan interval = TimeSpan.FromSeconds(12); //Period between every excecution. This can be edited
 	private bool isRunning = false; //Conflit controler
 									//The int below is temporary. It wil be used only at the DB population tasks.
-	private int[][] arrays = null!;
+	private Digimon[] digimons = null!;
 	private int cindex =  0;
 	private int maxIndex = 0;
 	private bool updatedIndex = false;
@@ -56,10 +56,15 @@ public class AutoTask : IHostedService, IDisposable //Stands for Hosted Service
 	{
 		if(!updatedIndex)
 		{
-			arrays = StatsBuilder.GetStats(7, 13, 1, 3);
-			maxIndex = arrays.Length - 1;
+			List<Digimon>? digimonList = await DDB.GetDigimonsByTierId(7);
+			if(digimonList == null)
+			{
+				digimonList = new List<Digimon>();
+			}
+			digimons = digimonList.ToArray();
+			maxIndex = digimons.Length - 1;
 			updatedIndex = true;
-			Console.WriteLine($"[{DateTime.Now:yyyy - MM - dd HH: mm: ss}][Automation] Auto Task: Array size generated: {arrays.Length}");
+			Console.WriteLine($"[{DateTime.Now:yyyy - MM - dd HH: mm: ss}][Automation] Auto Task: Array size generated: {digimons.Length}");
 
 		};
 		if(cindex > maxIndex)
@@ -67,15 +72,15 @@ public class AutoTask : IHostedService, IDisposable //Stands for Hosted Service
 			Console.WriteLine($"[{DateTime.Now:yyyy - MM - dd HH: mm: ss}][Automation] Auto Task: All data has been successfully added to the database. Please check the 'failed.txt' document for any missing entries. Closing the application...");
 			Environment.Exit(0);
 		}
-		Stats? result = await StatsDB.SaveStats(arrays[cindex]); //Calling the current task
+		Digimon? result = await DDB.GenerateDigimonStats(digimons[cindex].Id); //Calling the current task
 		if(cindex < maxIndex && result != null)
 		{
-			Console.WriteLine($"Showing current stats example: {result.ToString()}");
+			Console.WriteLine($"Updated Digimon: {result.ToString()}");
 			Console.WriteLine($"[{DateTime.Now:yyyy - MM - dd HH: mm: ss}][Automation] Auto Task: Hosted Service task completed successfully.");
 		}
 		if(result == null)
 		{
-			Console.WriteLine($"[{DateTime.Now:yyyy - MM - dd HH: mm: ss}][Automation] Auto Task: Hosted Service task failed. Ending server");
+			Console.WriteLine($"[{DateTime.Now:yyyy - MM - dd HH: mm: ss}][Automation] Auto Task: Hosted Service task failed. Ending server...");
 			Environment.Exit(0);
 		}
 		cindex++;
